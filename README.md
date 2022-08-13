@@ -4,7 +4,7 @@ I found the tutorial of building this Kalman Filter on https://www.bzarg.com/p/h
 
 The way this Kalman Filter works is it gathers data on points (x, y) and plugs them into a prediction equation. It is then compared to the actual results of the sensors (which I use random numbers for). There is a python file included and may be directly compiled from go.sh (please first use chmod u+x). Additionally you will need to download Matplotlib in order to plot in python, along with numpy and pandas. Below is the image of some of my results. For some reason the filter does well in predicting the X variable but not so much the Y variable. I would really appreciate some feedback on this error!
 
-![alt](https://github.com/marscolony2040/KalmanFilter/blob/main/img/A.png)<br/>
+![alt](https://github.com/marscolony2040/KalmanFilter/blob/main/img/BB.png)<br/>
 
 Pictured below is the math model used in this program which is found on the source url posted earlier
 ![alt](https://github.com/marscolony2040/KalmanFilter/blob/main/img/C.png)
