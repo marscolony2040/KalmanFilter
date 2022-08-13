@@ -45,11 +45,11 @@ public class kalman {
             zk[1][0] = RandX();
             op.write(Double.toString(zk[0][0]) + "," + Double.toString(xk1[0][0]) + "," + Double.toString(zk[1][0]) + "," + Double.toString(xk1[1][0]) + "\n");
             op.flush();
-            store_noise = Store(i, store_noise, zk[0][0] - xk1[0][0], zk[1][0]-xk1[1][0]);
+            store_noise = Store(i, store_noise, Math.abs(zk[0][0] - xk1[0][0]), Math.abs(zk[1][0]-xk1[1][0]));
             store_z = Store(i, store_z, zk[0][0], zk[1][0]);
             
             if(i > 0){
-                Pk = sp.Variance(store_x, "covariance");
+                //Pk = sp.Variance(store_x, "covariance");
                 Q = sp.Variance(store_noise, "covariance");
                 R = sp.Variance(store_z, "covariance");
                 
