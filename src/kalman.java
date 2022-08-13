@@ -21,6 +21,7 @@ public class kalman {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter your size: ");
         int n = in.nextInt();
+        int lookback = 15;
         double[][] xk1 = new double[2][2];
         double[][] pk1 = new double[2][2];
         double[][] K1 = new double[2][2];
@@ -34,9 +35,9 @@ public class kalman {
         double[][] zk = new double[2][1];
         double[][] xk = {{3},{2}};
         double[][] Pk = {{0.13, 0.1}, {0.1, 0.21}};
-        double[][] store_noise = new double[n][2];
-        double[][] store_x = new double[n][2];
-        double[][] store_z = new double[n][2];
+        double[][] store_noise = new double[lookback][2];
+        double[][] store_x = new double[lookback][2];
+        double[][] store_z = new double[lookback][2];
 
         for(int i = 0; i < n; i++){
             xk1 = XK1(xk);
@@ -85,7 +86,7 @@ public class kalman {
                 sn[k-1][0] = sn[k][0];
                 sn[k-1][1] = sn[k][1];
             }
-            sn[sn.length - 1][1] = x;
+            sn[sn.length - 1][0] = x;
             sn[sn.length - 1][1] = y;
         }
         return sn;
